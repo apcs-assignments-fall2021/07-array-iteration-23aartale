@@ -13,17 +13,17 @@ public class MyMain {
 
     // Finds the second largest number in an array
     public static int secondLargest(int[] arr) {
-        int bubble = 0;
-        int tickle = 0;
-        for (int i = 0; i <= arr.length - 1; i++){
-            if (bubble < arr[i]){
+        int bubble = Integer.MIN_VALUE;
+        int tickle = Integer.MIN_VALUE;
+        for (int i = 0; i <= arr.length - 1; i++) {
+            if (bubble < arr[i]) {
                 bubble = arr[i];
-                if(tickle != bubble){
-                    tickle = arr[i];
-                }
+            } else {
             }
-            else{
-                bubble = bubble;
+        }
+        for (int j = 0; j <= arr.length - 1; j++){
+            if (tickle < arr[j] && arr[j] != bubble){
+                tickle = arr[j];
             }
         }
         return tickle;
@@ -37,17 +37,19 @@ public class MyMain {
     public static boolean spellCheck(String word) {
         // Don't edit this array
         // This is our dictionary of valid words
+        int weird = 0;
         String[] dictionary = {"the","of","and","a","to","in","is","you","that","it","he","was","for","on","are","as","with","his","they","I","at","be","this","have","from","or","one","had","by","word","but","not","what","all","were","we","when","your","can","said","there","use","an","each","which","she","do","how","their","if","will","up","other","about","out","many","then","them","these","so","some","her","would","make","like","him","into","time","has","look","two","more","write","go","see","number","no","way","could","people","my","than","first","water","been","call","who","oil","its","now","find","long","down","day","did","get","come","made","may","cat","dog","cats","dogs"};
-        String [] goose = new String [word.length()];
-        for (int i = 0; i < word.length(); i++){
+        for (int i = 0; i < dictionary.length; i++){
             if (word == dictionary[i]){
-                return true;
-            }
-            else{
-                return false;
+                weird = 1;
             }
             }
-        return Boolean.parseBoolean(null);
+        if (weird == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
         }
 
 
